@@ -9,7 +9,7 @@ function App() {
 
 	useEffect(() => {
 		async function getData() {
-			let res = await fetch('http://www.filltext.com?rows=10&uName={username}&id={index}&fName={firstName}');
+			let res = await fetch('https://next.json-generator.com/api/json/get/Ek5OUQ3M5');
 			let json = await res.json();
 			setData(json);
 		}
@@ -46,27 +46,27 @@ function App() {
 			<thead>
 				<tr>
 					<th 
-						onClick={() => requestSort('id')}
+						onClick={() => requestSort('index')}
 						
 						>id</th>
-					<th 
-						onClick={() => requestSort('uName')}
-						
-						>username</th>
 					<th 
 						onClick={() => requestSort('fName')}
 						
 						>First name</th>
+					<th 
+						onClick={() => requestSort('sName')}
+						
+						>Sur name</th>
 				</tr>
 			</thead>
 			<tbody>
 				{
 					data.length
 						? data.map((d, i) => (
-							<tr key={i}>
-								<td>{d.id}</td>
-								<td>{d.uName}</td>
+							<tr key={d.id}>
+								<td>{d.index + 1}</td>
 								<td>{d.fName}</td>
+								<td>{d.sName}</td>
 							</tr>
 						))
 						: <tr><td><h6>Loading...</h6></td></tr>
