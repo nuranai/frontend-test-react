@@ -4,9 +4,70 @@ table, td ,th {
 }
 
 table {
-  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  max-width: 100%;
+  min-width: 50%;
+}
+
+tr:nth-child(2n) {
+  background-color: #e6e6e6;
+}
+
+td:first-child {
+  width: 10%;
+}
+
+th:first-child {
+  min-width: 10%;
 }
 
 th {
+  height: 35px;
   cursor: pointer;
+  max-width: 33%;
+}
+
+th:hover {
+  background-color: #e6e6e6;
+}
+
+.ascending::after {
+  content: "⮟";
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.descending::after {
+  content: "⮝";
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.pagination__container {
+  position: relative;
+  /* left: 50%; */
+  /* transform: translate(-20%, 0%); */
+  display: flex;
+  list-style: none;
+}
+
+.pagination__page {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.pagination__page:hover:not(.pagination__active) {
+  background-color: grey;
+}
+
+.pagination__button {
+  margin: 0px 10px;
+}
+
+.pagination__active {
+  background-color: #ddd;
 }
